@@ -248,8 +248,8 @@ class MainWindow(QMainWindow):
             else:
                 self.is_clear = False
                 current_point = QPointGraphicsItem()
-                current_point.set_pos(randint(0, self.fractal_scene.width()),
-                                      randint(0, self.fractal_scene.width()))
+                current_point.set_pos(randint(0, 100),
+                                      randint(0, 100))
                 vertex = [(self.ui.doubleSpinBox_3.value(), self.ui.doubleSpinBox_4.value()),
                           (self.ui.doubleSpinBox_5.value(), self.ui.doubleSpinBox_6.value()),
                           (self.ui.doubleSpinBox_7.value(), self.ui.doubleSpinBox_8.value()),
