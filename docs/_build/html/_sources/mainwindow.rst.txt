@@ -1,0 +1,9 @@
+mainwindow module
+=================
+
+..autofunction:: mainwindow.fibonacci_sequence
+
+.. automodule:: mainwindow
+   :members:
+   :undoc-members:
+   :show-inheritance:

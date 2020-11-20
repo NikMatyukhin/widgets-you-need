@@ -19,6 +19,7 @@ def fibonacci_sequence():
     
     Создаёт список из первых 98 чисел ряда Фибоначчи
     Использовать будем гораздо меньшее количество, я просто хочу 98
+    
     '''
     sequence = [1]
     a = b = 1
@@ -38,6 +39,7 @@ class QPointGraphicsItem(QGraphicsItem):
     :ivar y: координата по Y
     :vartype x: float
     :vartype y: float
+    
     '''
     def set_pos(self, x, y):
         '''Установка координат
@@ -46,6 +48,7 @@ class QPointGraphicsItem(QGraphicsItem):
         :type x: float
         :param y: координата по Y
         :type y: float
+        
         '''
         self.x = x
         self.y = y
@@ -58,6 +61,7 @@ class QPointGraphicsItem(QGraphicsItem):
         
         :returns: прямоугольник с границами объекта
         :rtype: :class:`QRectF`
+        
         '''
         return QRectF(self.x, self.y, 1., 1.)
 
@@ -66,6 +70,7 @@ class QPointGraphicsItem(QGraphicsItem):
         
         Обязательно переопределяемый метод класса. Нужен для
         отрисовки объекта через объект класса QPainter
+        
         '''
         painter.drawPoint(self.x, self.y)
 
@@ -78,6 +83,7 @@ class MainWindow(QMainWindow):
     заполнения полей и нажатия на кнопки должны обрабатываться
     в этом классе. Доступ к элементам GUI осуществляется через
     атрибут self.ui.<название элемента интерфейса>
+    
     '''
     def __init__(self):
         '''Инициализация окна
@@ -100,6 +106,7 @@ class MainWindow(QMainWindow):
         :vartype is_clear: boolean
         :ivar vertex: список вершин фрактального треугольника
         :vartype vertex: list
+        
         '''
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
@@ -146,6 +153,7 @@ class MainWindow(QMainWindow):
         последует сигнал к этому слоту. Здесь создаётся окно для выбора цвета,
         выделяется имя этого цвета, а затем метке присваивается текст этого имени
         и стиль оформления (цвет текста) с выбранным цветом
+        
         '''
         color = QColorDialog.getColor(Qt.white, self, 'Выберите цвет, пожалуйста')
         color_text = color.name()
@@ -159,6 +167,7 @@ class MainWindow(QMainWindow):
         происходит классификация введенных значений при помощи простых строковых функций.
         В связи с полученным результатом квадратик справа от строки получает соответствующий
         стиль оформления (цвет фона)
+        
         '''
         if text:
             if text.isalpha():
@@ -176,6 +185,7 @@ class MainWindow(QMainWindow):
         В третьем блоке интерфейса можно выбрать любую дату в календаре. Затем эта
         дата будет сконвертирована в строку соответствующего формата и установлена
         на соответствующую метку в качестве текста
+        
         '''
         date_text = date.toString('dd.MM.yyyy')
         self.ui.label_4.setText('Текущая дата: ' + date_text)
@@ -187,6 +197,7 @@ class MainWindow(QMainWindow):
         Не зависимо от взаимодействия, в метод будет передано число - текущее значение спинбокса
         или слайдера - номер нужного нам элемента ряда Фибоначчи. Остается только назначить метке
         в качестве текста это число и скорректировать значение в противоположном виджете
+        
         '''
         self.ui.horizontalSlider.setValue(pos)
         self.ui.spinBox.setValue(pos)
@@ -199,6 +210,7 @@ class MainWindow(QMainWindow):
         В пятом блоке можно напечатать текст в первое окошко, а по нажатию на кнопку "Запутать"
         получить во втором окне перемешанный текст. Преобразование текста в list необходимо, т.к.
         функция shuffle не работает со строками
+        
         '''
         shuffled_text = list(self.ui.textEdit.toPlainText())
         shuffle(shuffled_text)
@@ -209,6 +221,7 @@ class MainWindow(QMainWindow):
         
         В пятом блоке можно напечатать текст в первое окошко, а по нажатию на кнопку "Распутать"
         получить во втором окне копию этого текста
+        
         '''
         self.ui.textEdit_2.setText(self.ui.textEdit.toPlainText())
 
@@ -218,6 +231,7 @@ class MainWindow(QMainWindow):
         В шестом блоке можно выбрать координаты текущего круга и его радиус, а по нажатию
         на кнопку "Отрисовать" увидеть на сцене круг соответствующего цвета. Цвета прозрачны
         на 50%, поэтому видно все пересечения этих кругов (как удобно)
+        
         '''
         self.circle_scene.clear()
         self.circle_queue.append([self.ui.doubleSpinBox.value(),
@@ -239,6 +253,7 @@ class MainWindow(QMainWindow):
         треугольника, внутри которого будет отрисовываться фрактальный рисунок (треугольник
         Серпинского, если интересно). После одной успешной отрисовки мы блокируем холст
         через флажок self.is_clear, который будет снят методом очистки
+        
         '''
         if self.is_clear:
             if self.ui.doubleSpinBox_3.value() == self.ui.doubleSpinBox_4.value() == .0 or \
@@ -267,6 +282,7 @@ class MainWindow(QMainWindow):
         
         В седьмом блоке можно очистить окно путём вызова у сцены метода clear(),
         а также изменением флага self.is_clear, чтобы запустить отрисовку повторно
+        
         '''
         self.fractal_scene.clear()
         self.is_clear = True

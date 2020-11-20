@@ -81,3 +81,9 @@ venv/
 
 # cache
 *__pycache__
+
+# docs resources
+docs/*.bat
+docs/_static
+docs/_templates
+docs/Makefile
