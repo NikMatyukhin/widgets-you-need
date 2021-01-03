@@ -1,7 +1,0 @@
-ui\_mainwindow module
-=====================
-
-.. automodule:: ui_mainwindow
-   :members:
-   :undoc-members:
-   :show-inheritance:
