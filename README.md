@@ -23,7 +23,7 @@
 
 Вы окажетесь в папке с .whl файлами. Нам нужны файлы `PySide2-5.15*win_amd64.whl` и `shiboken2-5.15*win_amd64.whl`, если вы сидите на Windows. Для других ОС выбираете соответствующие файлы. После того, как скачаете эти файлы, просто воспользуйтесь пакетным менеджером pip:
 
-> pip install shiboken2-5.15.0a1.dev1605705360-5.15.2-cp35.cp36.cp37.cp38.cp39-none-win_amd64.whl
+> pip install shiboken2-5.15.0a1.dev1605705360-5.15.2-cp35.cp36.cp37.cp38.cp39-none-win_amd64.whl  
 > pip install PySide2-5.15.0a1.dev1605705360-5.15.2-cp35.cp36.cp37.cp38.cp39-none-win_amd64.whl
 
 Если ошибок не произошло, то проект должен запуститься без проблем.
